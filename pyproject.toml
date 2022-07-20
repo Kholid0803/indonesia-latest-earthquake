@@ -1,0 +1,24 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0"]
+
+[project]
+authors = [
+  {name = "Saif Kholid", email = "kholidsaif312@gmail.com"},
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
+  "Development Status :: 4 - Beta",
+]
+description = "A small example package"
+license = {file = "LICENSE"}
+name = "latestearthquake-indonesia"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "0.0.1"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://github.com/Kholid0803/indonesia-latest-earthquake"
