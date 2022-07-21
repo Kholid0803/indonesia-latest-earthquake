@@ -3,16 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def ekstraksi_data():
-    """
-    Tanggal: 18 Juli 2022, 
-    Waktu: 09:54:24 WIB
-    Magnitudo: 4.4
-    Kedalaman: 10 km
-    Lokasi: LAT = 4.91 - LON = 129.62
-
-    Pusat Gempa: Pusat gempa berada di laut 52 km BaratDaya Banda
-    Dirasakan (Skala MMI): III Banda
-    """
+    
     try:
         content = requests.get('https://bmkg.go.id')
     except Exception:
