@@ -2,15 +2,32 @@ import requests
 from bs4 import BeautifulSoup
 
 
-class GempaTerkini:
-    def __init__(self):
-        self.description = 'To get the latest earthquake in Indonesia from BMKG.go.id'
+class Bencana:
+    def __init__(self, url, description):
+        self.description = description
         self.result = None
+        self.url = url
 
-    def ekstraksi_data(self):
+    def scraping_data():
+        pass
+
+    def tampilkan_data():
+        pass
+
+    def run(self):
+        self.scraping_data()
+        self.tampilkan_data()
+
+
+class GempaTerkini(Bencana):
+    def __init__(self, url):
+        super(GempaTerkini, self).__init__(
+            url, 'To get the latest earthquake in Indonesia from BMKG.go.id')
+
+    def scraping_data(self):
 
         try:
-            content = requests.get('https://bmkg.go.id')
+            content = requests.get(self.url)
         except Exception:
             return None
         if content.status_code == 200:
@@ -66,14 +83,20 @@ class GempaTerkini:
         print(f"{self.result['lokasi']}")
         print(f"{self.result['dirasakan']}")
 
-    def run(self):
-        self.ekstraksi_data()
-        self.tampilkan_data()
+
+class BanjirTerkini(Bencana):
+    def __init__(self, url):
+        super(BanjirTerkini, self).__init__(
+            url, 'NOT IMPLOMENTED YET, but it should return last flood in Indonesia')
 
 
 if __name__ == '__main__':
-    gempa_di_indonesia = GempaTerkini()
-    print('Deskripsi package', gempa_di_indonesia.description)
+    gempa_di_indonesia = GempaTerkini('https://bmkg.go.id')
+    print('Deskripsi class GempaTerkini', gempa_di_indonesia.description)
     gempa_di_indonesia.run()
+
+    banjir_di_indonesia = BanjirTerkini('NOT YET')
+    print('Deskripsi class BanjirTerkini', banjir_di_indonesia.description)
+    banjir_di_indonesia.run()
     # gempa_di_indonesia.ekstraksi_data()
     # gempa_di_indonesia.tampilkan_data()
